@@ -16,3 +16,16 @@ revenueCard.textContent = "Revenue: $0";
 
 //Append the new metric card to the dashboard container using appendChild
 dashboard1.appendChild(revenueCard)
+
+//Task 2: Updating Dashboard Metrics – Working with NodeLists and Arrays
+
+//Use document.querySelectorAll to select all elements with the class "metric-card"
+const metricCards = Array.from(document.querySelectorAll(".metric-card"));
+
+//se an array method such as .forEach() to update each card’s inner text
+metricCards.forEach(card => {
+    card.textContent += " - Updated";
+    card.style.backgroundColor = "green";
+});
+
+
