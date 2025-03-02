@@ -28,7 +28,6 @@ metricCards.forEach(card => {
     card.style.backgroundColor = "green";
 });
 
-
 //Task 3: Dynamic Inventory Management – Adding and Removing Items
 
 //Create an empty <ul id="inventoryList"></ul>, create functionality to dynamically add new product items to this list and remove them upon user interaction
@@ -49,3 +48,25 @@ function addInventoryItem(productName) {
 function removeInventoryItem(item) {
     inventoryList.removeChild(item); //Use removeChild within the inventory list to remove the clicked item
 }
+
+//Task 4: Business Customer Section – Handling Event Bubbling
+
+//Create a nested structure: a parent container with the id "customerSection" and multiple child elements with the class "customer-card"
+const customerSection = document.getElementById("customerSection");
+
+function addCustomerCard(customerName) {
+    const customerCard = document.createElement("div");
+    customerCard.textContent = customerName;
+    customerCard.setAttribute("class", "customer-card");
+
+//Attach click event listeners to both the parent container and each customer card
+customerSection.addEventListener("click", () => {
+    console.log("Customer section clicked");
+});
+
+customerCard.addEventListener("click", (event) => {
+    console.log("Customer card clicked");
+    event.stopPropagation(); //In the customer card's click event handler, log a message (e.g., "Customer card clicked") and call stopPropagation()
+});
+
+};
