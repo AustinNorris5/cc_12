@@ -22,10 +22,30 @@ dashboard1.appendChild(revenueCard)
 //Use document.querySelectorAll to select all elements with the class "metric-card"
 const metricCards = Array.from(document.querySelectorAll(".metric-card"));
 
-//se an array method such as .forEach() to update each card’s inner text
+//Use an array method such as .forEach() to update each card’s inner text
 metricCards.forEach(card => {
     card.textContent += " - Updated";
     card.style.backgroundColor = "green";
 });
 
 
+//Task 3: Dynamic Inventory Management – Adding and Removing Items
+
+//Create an empty <ul id="inventoryList"></ul>, create functionality to dynamically add new product items to this list and remove them upon user interaction
+const inventoryList = document.getElementById("inventoryList");
+
+function addInventoryItem(productName) {
+    const item = document.createElement("li"); //Write a function that creates a new <li> element representing a product
+    item.textContent = productName;
+    item.setAttribute("class", "product-item", "data-product", productName); //Use setAttribute to add a class
+
+//Append the new product item to the inventory list using appendChild
+    inventoryList.appendChild(item);
+
+//Write a separate function that removes a specific <li> when it is clicked
+    item.addEventListener("click", () => removeInventoryItem(item));
+};
+
+function removeInventoryItem(item) {
+    inventoryList.removeChild(item); //Use removeChild within the inventory list to remove the clicked item
+}
